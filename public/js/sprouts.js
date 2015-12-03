@@ -12,7 +12,6 @@ var linkNum = function(link){
    $('a').attr('href', '/tweets?page=' + (number + 1));
  }
 
-
 $(window).scroll(function () {
   if ($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
     var pageURL = $('a').attr("href");
@@ -21,11 +20,9 @@ $(window).scroll(function () {
     var request = $.ajax({
     method: "GET",
     url: "/tweets.json?page=" + pageNUM
-
     });
-   request.done(pageAppend);
-   pageIncrement(pageNUM);
 
-
+    request.done(pageAppend);
+    pageIncrement(pageNUM);
   }
 });
